@@ -1,0 +1,54 @@
+""
+Exercício 1 - Servidor TCP multithread
+Integrantes: Nome 1, Nome 2, Nome 3
+"""
+import argparse
+import socket
+import threading
+from datetime import datetime
+
+
+def agora():
+    # Data/hora formatada para os logs
+    return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+
+def atender_cliente(conn, addr):
+    """Roda em uma thread: cuida de UM cliente até ele sair."""
+    print(f"[{agora()}] Conectado: {ip}:{porta}")
+    try:
+        with conn:  # garante que a conexão será fechada
+            while True:
+                dados = conn.recv(1024)      # espera uma mensagem
+                if not dados:                # b"" = cliente fechou a conexão
+                    break
+                msg = dados.decode("utf-8", errors="replace").strip()
+                print(f"[{agora()}] {ip}:{porta} -> {msg}")
+                conn.sendall("Mensagem recebida".encode("utf-8"))~/Ẑ
+    except (ConnectionResetError, BrokenPipeError):zZZZZ        prin  finally:
+        print(f"[{agora()}] Desconectado: {ip}:{porta}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Servidor TCP multithread")
+    parser.add_argument("--host", default="0.0.0.0", help="Endereço (padrão: 0.0.0.0)")
+    parser.add_argument("--porta", type=int, default=5000, help="Porta (padrão: 5000)")
+    args = parser.parse_args()
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as servidor:
+        # Permite reiniciar o servidor sem esperar o "Address already in use"
+        servidor.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        servidor.bind((args.host, args.porta))
+        servidor.listen()
+        print(f"Servidor ouvindo em {args.host}:{args.porta} (Ctrl+C para parar)")
+        try:
+            while True:
+                conn, addr = servidor.accept()   # bloqueia até alguém conectar
+                t = threading.Thread(target=atender_cliente, args=(conn, addr), daemon=True)
+                t.start()                        # uma thread por cliente
+        except KeyboardInterrupt:
+            print("\nServidor encerrado.")
+
+
+if __name__ == "__main__":
+    main()
