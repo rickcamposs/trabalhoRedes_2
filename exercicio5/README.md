@@ -8,6 +8,6 @@ Foi capturado o tráfego gerado ao acessar o site `neverssl.com`, que utiliza HT
 
 * Captura geral dos pacotes HTTP e detalhamento da requisição (pacote 640):
 
-![Pacote 640 – Requisição HTTP GET](imagens/Pacote_640.png)
+![Pacote 640 – Requisição HTTP GET](Pacote%20640.png)
 
-Arquivo de captura: `Exercicio-05-HTTP/captura-http.pcapng`
+Arquivo de captura:  [`Exercicio-05-HTTP/captura-http.pcapng`](./Tráfego%20HTTP.pcapng)
