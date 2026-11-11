@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+  Trabalho 2 - Redes de Computadores 2
+  Exercício 10: Chat em Rede com WebSockets - CLIENTE (navegador)
+
+  Integrantes do grupo:
+    - NOME DO INTEGRANTE 1
+    - NOME DO INTEGRANTE 2
+    - NOME DO INTEGRANTE 3
+
+  Cliente em HTML + JavaScript usando a WebSocket API nativa do navegador.
+  Usa o mesmo protocolo JSON do cliente Python (ver servidor.py).
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat WebSocket</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f2f4f7; color: #1d2433; }
+  main { max-width: 640px; margin: 24px auto; padding: 0 12px; }
+  h1 { font-size: 1.3rem; margin: 0 0 12px; }
+  .linha { display: flex; gap: 8px; margin-bottom: 8px; }
+  input { flex: 1; padding: 8px 10px; border: 1px solid #c4c9d4; border-radius: 6px; font-size: 1rem; }
+  button { padding: 8px 14px; border: 0; border-radius: 6px; background: #2d5bd7; color: #fff; font-size: 1rem; cursor: pointer; }
+  button:disabled { background: #9aa6c4; cursor: default; }
+  #status { font-size: .85rem; margin-bottom: 8px; color: #5b6475; }
+  #mensagens { height: 400px; overflow-y: auto; background: #fff; border: 1px solid #d5d9e2;
+               border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+  .msg { margin: 4px 0; line-height: 1.35; word-wrap: break-word; }
+  .hora { color: #8a92a3; font-size: .8rem; margin-right: 4px; }
+  .nome { font-weight: 600; }
+  .minha .nome { color: #2d5bd7; }
+  .sistema { color: #6b7385; font-style: italic; }
+  .erro { color: #c0392b; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Chat WebSocket</h1>
+
+  <!-- Conexão: endereço do servidor e nome de usuário -->
+  <div class="linha">
+    <input id="servidor" value="ws://localhost:8765" aria-label="Endereço do servidor">
+    <input id="nome" placeholder="Seu nome" maxlength="20" aria-label="Nome de usuário">
+    <button id="btnConectar">Entrar</button>
+  </div>
+  <div id="status">Desconectado</div>
+
+  <div id="mensagens" aria-live="polite"></div>
+
+  <!-- Envio de mensagens -->
+  <form id="formMsg" class="linha">
+    <input id="texto" placeholder="Digite uma mensagem…" autocomplete="off" disabled>
+    <button id="btnEnviar" disabled>Enviar</button>
+  </form>
+</main>
+
+<script>
+  // Referências aos elementos da página
+  const el = id => document.getElementById(id);
+  const caixa = el("mensagens");
+  let ws = null;          // conexão WebSocket atual
+  let meuNome = null;     // nome aceito pelo servidor
+
+  // Adiciona uma linha na área de mensagens (textContent evita injeção de HTML)
+  function adicionar(classe, hora, nome, texto) {
+    const div = document.createElement("div");
+    div.className = "msg " + classe;
+    if (hora) { const h = document.createElement("span"); h.className = "hora"; h.textContent = hora; div.append(h); }
+    if (nome) { const n = document.createElement("span"); n.className = "nome"; n.textContent = nome + ": "; div.append(n); }
+    div.append(document.createTextNode(texto));
+    caixa.append(div);
+    caixa.scrollTop = caixa.scrollHeight;
+  }
+
+  function horaAtual() { return new Date().toTimeString().slice(0, 8); }
+
+  // Habilita/desabilita os controles conforme o estado da conexão
+  function setConectado(conectado) {
+    el("texto").disabled = el("btnEnviar").disabled = !conectado;
+    el("nome").disabled = el("servidor").disabled = conectado;
+    el("btnConectar").textContent = conectado ? "Sair" : "Entrar";
+    el("status").textContent = conectado ? `Conectado como ${meuNome}` : "Desconectado";
+    if (conectado) el("texto").focus();
+  }
+
+  function conectar() {
+    const nome = el("nome").value.trim();
+    if (!nome) { adicionar("erro", null, null, "Informe um nome de usuário."); return; }
+
+    try {
+      ws = new WebSocket(el("servidor").value.trim());
+    } catch (e) {
+      adicionar("erro", null, null, "Endereço inválido: " + e.message);
+      return;
+    }
+    el("status").textContent = "Conectando…";
+    el("btnConectar").disabled = true;
+
+    // Ao abrir a conexão, a primeira mensagem identifica o usuário
+    ws.onopen = () => ws.send(JSON.stringify({ tipo: "entrar", nome }));
+
+    // Mensagens recebidas do servidor
+    ws.onmessage = evento => {
+      let msg;
+      try { msg = JSON.parse(evento.data); } catch { return; }
+      if (msg.tipo === "erro") {
+        adicionar("erro", null, null, msg.texto);
+        if (!meuNome) ws.close();          // nome recusado: encerra e deixa tentar outro
+        return;
+      }
+      if (!meuNome) { meuNome = nome; el("btnConectar").disabled = false; setConectado(true); }
+      if (msg.tipo === "mensagem") adicionar("", msg.hora, msg.nome, msg.texto);
+      else if (msg.tipo === "sistema") adicionar("sistema", msg.hora, null, msg.texto);
+    };
+
+    ws.onerror = () => adicionar("erro", null, null, "Erro de conexão com o servidor.");
+
+    ws.onclose = () => {
+      if (meuNome) adicionar("sistema", horaAtual(), null, "Você saiu do chat.");
+      meuNome = null; ws = null;
+      el("btnConectar").disabled = false;
+      setConectado(false);
+    };
+  }
+
+  // Botão Entrar/Sair
+  el("btnConectar").onclick = () => ws ? ws.close() : conectar();
+  el("nome").addEventListener("keydown", e => { if (e.key === "Enter") conectar(); });
+
+  // Envio de mensagens
+  el("formMsg").onsubmit = e => {
+    e.preventDefault();
+    const texto = el("texto").value.trim();
+    if (!texto || !ws || ws.readyState !== WebSocket.OPEN) return;
+    if (texto.toLowerCase() === "sair") { ws.close(); return; }
+    ws.send(JSON.stringify({ tipo: "mensagem", texto }));
+    adicionar("minha", horaAtual(), meuNome, texto);   // mostra a própria mensagem
+    el("texto").value = "";
+  };
+</script>
+</body>
+</html>
