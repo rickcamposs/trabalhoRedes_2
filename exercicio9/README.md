@@ -8,22 +8,22 @@ Foi gerada uma nova negociação DHCP, precedida por um `DHCP Release` (pacote 4
 
 * DHCP Release (pacote 420):
 
-![Pacote 420 – Release](imagens/Pacote_420_-_Release.png)
+![Pacote 420 – Release](Pacote%20420%20-%20Release.png)
 
 * DHCP Discover (pacote 558):
 
-![Pacote 558 – Discover](imagens/Pacote_558_-_Discover.png)
+![Pacote 558 – Discover](Pacote%20558%20-%20Discover.png)
 
 * DHCP Offer (pacote 559):
 
-![Pacote 559 – Offer](imagens/Pacote_559_-_Offer.png)
+![Pacote 559 – Offer](Pacote%20559%20-%20Offer.png)
 
 * DHCP Request (pacote 560):
 
-![Pacote 560 – Request](imagens/Pacote_560_-_Request.png)
+![Pacote 560 – Request](Pacote%20560%20-%20Request.png)
 
 * DHCP ACK (pacote 565):
 
-![Pacote 565 – ACK](imagens/Pacote_565_-_ACK.png)
+![Pacote 565 – ACK](Pacote%20565%20-%20ACK.png)
 
-Arquivo de captura: `Exercicio-09-DHCP/captura-dhcp.pcapng`
+Arquivo de captura: [`Exercicio-09-DHCP/captura-dhcp.pcapng`](./Tráfego%20DHCP.pcapng)
