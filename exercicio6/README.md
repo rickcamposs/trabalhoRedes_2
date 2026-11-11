@@ -8,20 +8,27 @@ Usando o Telnet na porta 80 de um servidor web, foi observado o Three-Way Handsh
 
 * Estabelecimento da conexão (Three-Way Handshake):
 
-![Pacote 43 – SYN](imagens/Estabelecimento_de_Conexão_-_Pacote_43__SYN_.png)
+Pacote 43 – SYN
+![Pacote 43 – SYN](Estabelecimento%20de%20Conexão%20-%20Pacote%2043%20(SYN).png)
 
-![Pacote 69 – SYN-ACK](imagens/Estabelecimento_de_Conexão_-_Pacote_69__SYN-ACK_.png)
+Pacote 69 – SYN-ACK
+![Pacote 69 – SYN-ACK](Estabelecimento%20de%20Conexão%20-%20Pacote%2069%20(SYN-ACK).png)
 
-![Pacote 71 – ACK](imagens/Estabelecimento_de_Conexão_-_Pacote_71__ACK_.png)
+Pacote 71 – ACK
+![Pacote 71 – ACK](Estabelecimento%20de%20Conexão%20-%20Pacote%2071%20(ACK).png)
 
 * Encerramento da conexão:
 
-![Pacote 195 – FIN-ACK](imagens/Encerramento_de_Conexão_-_Pacote_195__FIN-ACK_.png)
+Pacote 195 – FIN-ACK
+![Pacote 195 – FIN-ACK](Encerramento%20de%20Conexão%20-%20Pacote%20195%20(FIN-ACK).png)
 
-![Pacote 196 – ACK](imagens/Encerramento_de_Conexão_-_Pacote_196__ACK_.png)
+Pacote 196 – ACK
+![Pacote 196 – ACK](Encerramento%20de%20Conexão%20-%20Pacote%20196%20(ACK).png)
 
-![Pacote 197 – FIN-ACK](imagens/Encerramento_de_Conexão_-_Pacote_197__FIN-ACK_.png)
+Pacote 197 – FIN-ACK
+![Pacote 197 – FIN-ACK](Encerramento%20de%20Conexão%20-%20Pacote%20197%20(FIN-ACK).png)
 
-![Pacote 208 – ACK](imagens/Encerramento_de_Conexão_-_Pacote_208__ACK_.png)
+Pacote 208 – ACK
+![Pacote 208 – ACK](Encerramento%20de%20Conexão%20-%20Pacote%20208%20(ACK).png)
 
-Arquivo de captura: `Exercicio-06-TCP/captura-tcp.pcapng`
+Arquivo de captura:  [`Exercicio-06-TCP/captura-tcp.pcapng`](./Estabelecimento%20e%20Encerramento%20de%20Conexão%20TCP.pcapng)
