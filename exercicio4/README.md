@@ -1,7 +1,5 @@
 # Exercício 4 - Servidor de Hora com Threads
 
-Integrantes: Nome 1, Nome 2, Nome 3
-
 ## Requisitos
 Python 3.10+ (somente biblioteca padrão).
 
