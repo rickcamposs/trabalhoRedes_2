@@ -8,14 +8,18 @@ Com o filtro `dns`, foram observadas consultas feitas pelo host `192.168.15.81` 
 
 * Consultas DNS (tipos A e AAAA):
 
-![Pacote 84 – Consulta tipo A](imagens/Pacote_84_-_Type_A.png)
+Pacote 84 – Consulta tipo A
+![Pacote 84 – Consulta tipo A](Pacote%2084%20-%20Type%20A.png)
 
-![Pacote 85 – Consulta tipo AAAA](imagens/Pacote_85_-_Type_AAAA.png)
+Pacote 85 – Consulta tipo AAAA
+![Pacote 85 – Consulta tipo AAAA](Pacote%2085%20-%20Type%20AAAA.png)
 
 * Respostas DNS:
 
-![Pacote 99 – Resposta tipo A](imagens/Pacote_99_-_Type_A__response_.png)
+Pacote 99 – Resposta tipo A
+![Pacote 99 – Resposta tipo A](Pacote%2099%20-%20Type%20A%20(response).png)
 
-![Pacote 100 – Resposta tipo AAAA](imagens/Pacote_100_-_Type_AAAA__response_.png)
+Pacote 100 – Resposta tipo AAAA
+![Pacote 100 – Resposta tipo AAAA](Pacote%20100%20-%20Type%20AAAA%20(response).png)
 
-Arquivo de captura: `Exercicio-07-DNS/captura-dns.pcapng`
+Arquivo de captura: [`Exercicio-07-DNS/captura-dns.pcapng`](./Resolução%20de%20Nomes%20via%20DNS.pcapng)
