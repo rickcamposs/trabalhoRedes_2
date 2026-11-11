@@ -1,7 +1,5 @@
 # Exercício 1 - Cliente-Servidor TCP
 
-Integrantes: Nome 1, Nome 2, Nome 3
-
 ## Requisitos
 Python 3.10+ (somente biblioteca padrão, nada a instalar).
 
