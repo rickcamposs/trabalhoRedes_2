@@ -11,3 +11,9 @@ Foi capturado o tráfego gerado ao acessar o site `neverssl.com`, que utiliza HT
 ![Pacote 640 – Requisição HTTP GET](Pacote%20640.png)
 
 Arquivo de captura:  [`Exercicio-05-HTTP/captura-http.pcapng`](./Tráfego%20HTTP.pcapng)
+
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
