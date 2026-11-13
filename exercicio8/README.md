@@ -24,3 +24,9 @@ Pacote 489 – Echo reply
 ![Pacote 489 – Echo reply](Pacote%20489%20(reply).png)
 
 Arquivo de captura: [`Exercicio-08-ICMP/captura-icmp.pcapng`](./Tráfego%20ICMP%20(ping).pcapng)
+
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
