@@ -32,3 +32,9 @@ Pacote 208 – ACK
 ![Pacote 208 – ACK](Encerramento%20de%20Conexão%20-%20Pacote%20208%20(ACK).png)
 
 Arquivo de captura:  [`Exercicio-06-TCP/captura-tcp.pcapng`](./Estabelecimento%20e%20Encerramento%20de%20Conexão%20TCP.pcapng)
+
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
