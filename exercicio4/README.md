@@ -1,5 +1,11 @@
 # Exercício 4 - Servidor de Hora com Threads
 
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
+
 ## Requisitos
 Python 3.10+ (somente biblioteca padrão).
 
