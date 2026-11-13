@@ -1,12 +1,12 @@
 # Exercício 10 — Chat em Rede com WebSockets
 
+Chat em tempo real com servidor em Python (biblioteca `websockets`) e dois clientes possíveis: um de terminal em Python e uma página HTML que usa a WebSocket API nativa do navegador. Os dois clientes podem conversar entre si na mesma sala.
+
 ## Integrantes do grupo
 
 - Felipe Alcântara Guimarães Veloso
 - Gabriel de Jesus Moraes Maurício
 - Riquelme Moreira Campos
-
-Chat em tempo real com servidor em Python (biblioteca `websockets`) e dois clientes possíveis: um de terminal em Python e uma página HTML que usa a WebSocket API nativa do navegador. Os dois clientes podem conversar entre si na mesma sala.
 
 ## Requisitos
 
