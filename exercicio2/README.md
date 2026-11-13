@@ -1,5 +1,11 @@
 # Exercício 2 - Servidor Echo UDP
 
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
+
 ## Requisitos
 Python 3.10+ (somente biblioteca padrão).
 
