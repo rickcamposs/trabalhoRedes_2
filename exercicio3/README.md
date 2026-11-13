@@ -2,6 +2,12 @@
 
 Chat em tempo real com um servidor central TCP multithread e vários clientes.
 
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
+
 ## Requisitos
 
 - Linux
