@@ -23,3 +23,9 @@ Pacote 100 – Resposta tipo AAAA
 ![Pacote 100 – Resposta tipo AAAA](Pacote%20100%20-%20Type%20AAAA%20(response).png)
 
 Arquivo de captura: [`Exercicio-07-DNS/captura-dns.pcapng`](./Resolução%20de%20Nomes%20via%20DNS.pcapng)
+
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
