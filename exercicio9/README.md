@@ -27,3 +27,9 @@ Foi gerada uma nova negociação DHCP, precedida por um `DHCP Release` (pacote 4
 ![Pacote 565 – ACK](Pacote%20565%20-%20ACK.png)
 
 Arquivo de captura: [`Exercicio-09-DHCP/captura-dhcp.pcapng`](./Tráfego%20DHCP.pcapng)
+
+## Integrantes do grupo
+
+- Felipe Alcântara Guimarães Veloso
+- Gabriel de Jesus Moraes Maurício
+- Riquelme Moreira Campos
